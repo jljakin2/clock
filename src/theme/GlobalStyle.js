@@ -15,6 +15,13 @@ html {
 }
 
 body {
-    background: red;
+    font-family: 'Inter', sans-serif;
+    color: ${props => props.theme.colors.white};
+
+    position: relative;
+    overflow: hidden;
 }
+
 `;
+
+export default GlobalStyle;
