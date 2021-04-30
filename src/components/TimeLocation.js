@@ -17,7 +17,7 @@ const Container = styled.div`
     // 900px
     flex-direction: column;
     align-items: stretch;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
   }
 `;
 
