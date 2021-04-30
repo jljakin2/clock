@@ -93,7 +93,7 @@ const App = () => {
      * Function uses API information to update app states
      */
 
-    const response = await axios.get("http://worldtimeapi.org/api/ip");
+    const response = await axios.get("https://worldtimeapi.org/api/ip");
 
     // The response data contains the time information in a long date time string so we need to clean it up to get just the time.
     const dateTimeArray = response.data.datetime.split("T");
