@@ -32,7 +32,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [link](https://pricing-component-pi.vercel.app/)
+- Live Site URL: [link](https://clock-neon-ten.vercel.app/)
 
 ## My process
 
