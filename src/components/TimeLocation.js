@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 import Greeting from "./Greeting";
 import Time from "./Time";
 import Location from "./Location";
@@ -15,6 +14,7 @@ const Container = styled.div`
   z-index: 10;
 
   @media only screen and (max-width: 56.25em) {
+    // 900px
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-end;
@@ -32,6 +32,7 @@ const TimeContainer = styled.div`
   }
 
   @media only screen and (max-width: 56.25em) {
+    // 900px
     margin-right: 0;
     margin-bottom: 3rem;
   }
@@ -39,6 +40,7 @@ const TimeContainer = styled.div`
 
 const TimeLocation = ({ time, abbr, location, handleMoreClick, isMore }) => {
   return (
+    // we want to move this up when the moreButton is pressed in order to make space for the moreMenu
     <Container style={isMore ? { transform: "translateY(-45vh)" } : {}}>
       <TimeContainer>
         <Greeting time={time} />

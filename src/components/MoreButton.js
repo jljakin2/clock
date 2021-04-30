@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+// Image import
 import arrow from "../assets/desktop/icon-arrow-up.svg";
 
 const Container = styled.div`
@@ -20,6 +21,7 @@ const Container = styled.div`
   }
 
   @media only screen and (max-width: 43.75em) {
+    // 700px
     width: 7.1875rem;
     padding: 0.25rem 0.25rem 0.25rem 1rem;
   }
@@ -36,6 +38,7 @@ const ButtonText = styled.p`
   margin-right: 0.5rem;
 
   @media only screen and (max-width: 43.75em) {
+    // 700px
     font-size: 0.75rem;
     line-height: 0.875rem;
 
@@ -47,6 +50,7 @@ const Arrow = styled.img`
   transition: transform 0.3s ease-out;
 
   @media only screen and (max-width: 43.75em) {
+    // 700px
     width: 2rem;
     height: 2rem;
   }

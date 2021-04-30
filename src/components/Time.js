@@ -1,4 +1,5 @@
 import React from "react";
+import Loader from "react-loader-spinner";
 import styled from "styled-components";
 
 const StyledTime = styled.h1`
@@ -12,10 +13,12 @@ const StyledTime = styled.h1`
   align-items: flex-end;
 
   @media only screen and (max-width: 56.25em) {
+    // 900px
     font-size: 10.9375rem;
   }
 
   @media only screen and (max-width: 43.75em) {
+    // 700px
     font-size: 6.25rem;
     line-height: 6.25rem;
   }
@@ -33,15 +36,35 @@ const TimeLabel = styled.span`
   margin-left: 1rem;
 
   @media only screen and (max-width: 43.75em) {
+    // 700px
     font-size: 0.9375rem;
     transform: translateY(0);
   }
 `;
 
 const Time = ({ time, abbr }) => {
+  const getContent = () => {
+    /**
+     * Function that returns a loading signal to the user if the api hasn't returned any data yet
+     */
+    if (!time) {
+      return (
+        <Loader
+          type="TailSpin"
+          color="#fff"
+          height="30"
+          width="30"
+          style={{ marginRight: "2rem" }}
+        />
+      );
+    } else {
+      return time;
+    }
+  };
+
   return (
     <StyledTime>
-      {time}
+      {getContent()}
       <TimeLabel>{abbr}</TimeLabel>
     </StyledTime>
   );

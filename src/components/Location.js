@@ -9,10 +9,12 @@ const StyledLocation = styled.h3`
   font-weight: ${props => props.theme.fontWeights.regular};
 
   @media only screen and (max-width: 56.25em) {
+    // 900px
     font-size: 1.125rem;
   }
 
   @media only screen and (max-width: 43.75em) {
+    // 700px
     font-size: 0.9375rem;
   }
 `;

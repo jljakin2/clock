@@ -1,4 +1,5 @@
 import React from "react";
+import Loader from "react-loader-spinner";
 import styled from "styled-components";
 
 import refresh from "../assets/desktop/icon-refresh.svg";
@@ -12,6 +13,7 @@ const Container = styled.div`
   z-index: 10;
 
   @media only screen and (max-width: 43.75em) {
+    // 700px
     margin-bottom: auto;
   }
 `;
@@ -24,6 +26,7 @@ const QuoteContainer = styled.div`
   max-width: 33.75rem;
 
   @media only screen and (max-width: 43.75em) {
+    // 700px
     max-width: 100%;
   }
 `;
@@ -38,6 +41,7 @@ const QuoteText = styled.p`
   }
 
   @media only screen and (max-width: 43.75em) {
+    // 700px
     font-size: 0.75rem;
     line-height: 1.375rem;
   }
@@ -52,12 +56,31 @@ const Refresh = styled.img`
 `;
 
 const Quote = ({ quote, author, onQuoteRefresh, isMore }) => {
+  const getContent = () => {
+    if (!quote) {
+      return (
+        <Loader
+          type="TailSpin"
+          color="#fff"
+          height="30"
+          width="30"
+          style={{ marginRight: "2rem" }}
+        />
+      );
+    } else {
+      return (
+        <QuoteContainer>
+          <QuoteText>"{quote}"</QuoteText>
+          <QuoteText>{author}</QuoteText>
+        </QuoteContainer>
+      );
+    }
+  };
+
   return (
+    // we need to move this out of the way if the more button is pressed
     <Container style={isMore ? { transform: "translateY(-50vh)" } : {}}>
-      <QuoteContainer>
-        <QuoteText>"{quote}"</QuoteText>
-        <QuoteText>{author}</QuoteText>
-      </QuoteContainer>
+      {getContent()}
       <Refresh src={refresh} onClick={() => onQuoteRefresh()}></Refresh>
     </Container>
   );

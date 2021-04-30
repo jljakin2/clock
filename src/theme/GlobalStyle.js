@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 html {
-    font-size: 100%;
+    font-size: 100%; // 16px
     box-sizing: border-box;
 }
 
@@ -19,6 +19,7 @@ body {
     color: ${props => props.theme.colors.white};
 
     position: relative;
+    // we want to make sure the moreMenu is hidden when the button is not pressed
     overflow: hidden;
 }
 `;

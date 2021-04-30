@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
+// Image import
 import sun from "../assets/desktop/icon-sun.svg";
 import moon from "../assets/desktop/icon-moon.svg";
 
@@ -24,10 +25,12 @@ const StyledGreeting = styled.div`
   font-weight: ${props => props.theme.fontWeights.regular};
 
   @media only screen and (max-width: 56.25em) {
+    // 900px
     font-size: 1.125rem;
   }
 
   @media only screen and (max-width: 43.75em) {
+    // 700px
     font-size: 0.9375rem;
   }
 `;
@@ -41,15 +44,23 @@ const Currently = styled.span`
   font-weight: ${props => props.theme.fontWeights.regular};
 
   @media only screen and (max-width: 56.25em) {
+    // 900px
     font-size: 1.125rem;
   }
 
   @media only screen and (max-width: 43.75em) {
+    // 700px
     display: none;
   }
 `;
 
 const handleGreeting = hour => {
+  /**
+   * We need to know what the value for the hour is only.
+   * Then we can take that value and run it through conditionals to determine if our app
+   * should tell the user "Good morning", "Good afternoon", or "Good evening".
+   * We also use that information to render either the sun or the moon icon next to the greeting.
+   */
   const hourNum = +hour.split(":")[0];
 
   if (hourNum < 5) {
@@ -64,16 +75,19 @@ const handleGreeting = hour => {
 };
 
 const Greeting = ({ time }) => {
+  /**
+   * Run the handleGreeting function when the component mounts and when it is updated
+   */
   useEffect(() => {
     handleGreeting(time);
   }, [time]);
 
   return (
     <Container>
-      <Icon src={handleGreeting(time)[1]} />
+      {time ? <Icon src={handleGreeting(time)[1]} /> : ""}
       <StyledGreeting>
-        {handleGreeting(time)[0]}
-        <Currently>, it's currently</Currently>
+        {time ? handleGreeting(time)[0] : ""}
+        {time ? <Currently>, it's currently</Currently> : ""}
       </StyledGreeting>
     </Container>
   );
