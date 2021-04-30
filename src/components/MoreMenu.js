@@ -76,7 +76,7 @@ const MoreMenu = ({
   };
 
   return (
-    <ParentContainer style={containerStyles}>
+    <ParentContainer isNighttime={isNighttime} style={containerStyles}>
       <ChildContainer>
         <MenuItem title={"Current Timezone"} content={timezone} />
         <MenuItem title={"Day of the Year"} content={dayOfYear} />

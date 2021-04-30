@@ -1,5 +1,4 @@
 import axios from "axios";
-import Loader from "react-loader-spinner";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
@@ -109,7 +108,7 @@ const App = () => {
     const dayOfYear = response.data.day_of_year;
 
     // Check time of day because app will render specific things based on if the time of day is nighttime or daytime
-    if (timeArray[0] < 7 || timeArray[0] >= 18) {
+    if (+timeArray[0] < 7 || +timeArray[0] >= 18) {
       setIsNighttime(true);
     }
 
@@ -168,7 +167,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Main>
+      <Main isNighttime={isNighttime}>
         <Quote
           quote={quote}
           author={author}
