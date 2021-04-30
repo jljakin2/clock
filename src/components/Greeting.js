@@ -22,6 +22,31 @@ const StyledGreeting = styled.div`
   line-height: 1.75rem;
   text-transform: uppercase;
   font-weight: ${props => props.theme.fontWeights.regular};
+
+  @media only screen and (max-width: 56.25em) {
+    font-size: 1.125rem;
+  }
+
+  @media only screen and (max-width: 43.75em) {
+    font-size: 0.9375rem;
+  }
+`;
+
+const Currently = styled.span`
+  font-size: 1.25rem;
+  color: ${props => props.theme.colors.white};
+  letter-spacing: 0.25rem;
+  line-height: 1.75rem;
+  text-transform: uppercase;
+  font-weight: ${props => props.theme.fontWeights.regular};
+
+  @media only screen and (max-width: 56.25em) {
+    font-size: 1.125rem;
+  }
+
+  @media only screen and (max-width: 43.75em) {
+    display: none;
+  }
 `;
 
 const handleGreeting = hour => {
@@ -46,7 +71,10 @@ const Greeting = ({ time }) => {
   return (
     <Container>
       <Icon src={handleGreeting(time)[1]} />
-      <StyledGreeting>{handleGreeting(time)[0]}, it's currently</StyledGreeting>
+      <StyledGreeting>
+        {handleGreeting(time)[0]}
+        <Currently>, it's currently</Currently>
+      </StyledGreeting>
     </Container>
   );
 };

@@ -7,6 +7,14 @@ const StyledLocation = styled.h3`
   line-height: 1.75rem;
   text-transform: uppercase;
   font-weight: ${props => props.theme.fontWeights.regular};
+
+  @media only screen and (max-width: 56.25em) {
+    font-size: 1.125rem;
+  }
+
+  @media only screen and (max-width: 43.75em) {
+    font-size: 0.9375rem;
+  }
 `;
 
 const Location = ({ location }) => {

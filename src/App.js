@@ -9,10 +9,21 @@ import MoreMenu from "./components/MoreMenu";
 import GlobalStyle from "./theme/GlobalStyle";
 import theme from "./theme/theme";
 
+// desktop images
 import daytime from "./assets/desktop/bg-image-daytime.jpg";
 import nighttime from "./assets/desktop/bg-image-nighttime.jpg";
 
+// tablet images
+import daytimeTab from "./assets/tablet/bg-image-daytime.jpg";
+import nighttimeTab from "./assets/tablet/bg-image-nighttime.jpg";
+
+// mobile images
+import daytimeMobile from "./assets/mobile/bg-image-daytime.jpg";
+import nighttimeMobile from "./assets/mobile/bg-image-nighttime.jpg";
+
 const Main = styled.div`
+  background-image: ${props =>
+    props.isNighttime ? `url(${nighttime})` : `url(${daytime})`};
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -24,9 +35,21 @@ const Main = styled.div`
 
   height: 100vh;
   padding: 3.5rem 9.6875rem 6.125rem 9.6875rem;
-  /* border: 1px solid red; */
 
   z-index: 1;
+
+  @media only screen and (max-width: 75em) {
+    padding: 5rem 4rem 4rem 4rem;
+    background-image: ${props =>
+      props.isNighttime ? `url(${nighttimeTab})` : `url(${daytimeTab})`};
+  }
+
+  @media only screen and (max-width: 43.75em) {
+    padding: 2.5rem 1.5625rem;
+    justify-content: flex-start;
+    background-image: ${props =>
+      props.isNighttime ? `url(${nighttimeMobile})` : `url(${daytimeMobile})`};
+  }
 
   &::before {
     content: "";
@@ -69,7 +92,7 @@ const App = () => {
     const weekNum = response.data.week_number;
     const dayOfYear = response.data.day_of_year;
 
-    if (timeArray[0] < 7 || timeArray >= 18) {
+    if (timeArray[0] < 7 || timeArray[0] >= 18) {
       setIsNighttime(true);
     }
 
@@ -103,7 +126,6 @@ const App = () => {
 
   const handleMoreClick = () => {
     setIsMore(!isMore);
-    console.log(isMore);
   };
 
   useEffect(() => {
@@ -112,14 +134,10 @@ const App = () => {
     handleQuoteApi();
   }, []);
 
-  const renderBgImage = () => {
-    return isNighttime ? `url(${nighttime})` : `url(${daytime})`;
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Main style={{ background: renderBgImage() }}>
+      <Main>
         <Quote
           quote={quote}
           author={author}
@@ -139,6 +157,7 @@ const App = () => {
         dayOfWeek={dayOfWeek}
         weekNum={weekNum}
         dayOfYear={dayOfYear}
+        isNighttime={isNighttime}
         isMore={isMore}
       />
     </ThemeProvider>

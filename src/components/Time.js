@@ -10,6 +10,15 @@ const StyledTime = styled.h1`
 
   display: flex;
   align-items: flex-end;
+
+  @media only screen and (max-width: 56.25em) {
+    font-size: 10.9375rem;
+  }
+
+  @media only screen and (max-width: 43.75em) {
+    font-size: 6.25rem;
+    line-height: 6.25rem;
+  }
 `;
 
 const TimeLabel = styled.span`
@@ -22,6 +31,11 @@ const TimeLabel = styled.span`
   transform: translateY(-2rem);
 
   margin-left: 1rem;
+
+  @media only screen and (max-width: 43.75em) {
+    font-size: 0.9375rem;
+    transform: translateY(0);
+  }
 `;
 
 const Time = ({ time, abbr }) => {

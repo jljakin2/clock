@@ -10,6 +10,10 @@ const Container = styled.div`
   transition: transform 0.3s ease-out;
 
   z-index: 10;
+
+  @media only screen and (max-width: 43.75em) {
+    margin-bottom: auto;
+  }
 `;
 
 const QuoteContainer = styled.div`
@@ -18,6 +22,10 @@ const QuoteContainer = styled.div`
 
   margin-right: 1rem;
   max-width: 33.75rem;
+
+  @media only screen and (max-width: 43.75em) {
+    max-width: 100%;
+  }
 `;
 
 const QuoteText = styled.p`
@@ -27,6 +35,11 @@ const QuoteText = styled.p`
 
   &:not(:last-child) {
     margin-bottom: 0.8125rem;
+  }
+
+  @media only screen and (max-width: 43.75em) {
+    font-size: 0.75rem;
+    line-height: 1.375rem;
   }
 `;
 

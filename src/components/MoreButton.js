@@ -18,6 +18,11 @@ const Container = styled.div`
   &:hover img {
     opacity: 0.5;
   }
+
+  @media only screen and (max-width: 43.75em) {
+    width: 7.1875rem;
+    padding: 0.25rem 0.25rem 0.25rem 1rem;
+  }
 `;
 
 const ButtonText = styled.p`
@@ -29,10 +34,22 @@ const ButtonText = styled.p`
   line-height: 1.75rem;
 
   margin-right: 0.5rem;
+
+  @media only screen and (max-width: 43.75em) {
+    font-size: 0.75rem;
+    line-height: 0.875rem;
+
+    margin: 0;
+  }
 `;
 
 const Arrow = styled.img`
   transition: transform 0.3s ease-out;
+
+  @media only screen and (max-width: 43.75em) {
+    width: 2rem;
+    height: 2rem;
+  }
 `;
 
 const MoreButton = ({ handleMoreClick, isMore }) => {
